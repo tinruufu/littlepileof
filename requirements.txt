@@ -1,2 +1,2 @@
 nltk==3.0.5
-pattern==2.6
+inflect==0.2.5

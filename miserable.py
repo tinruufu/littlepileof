@@ -1,22 +1,43 @@
 from random import choice
+import re
 
 from nltk.corpus import wordnet
-from pattern.en import pluralize, referenced
+from inflect import engine
 
-RAREST = 1500
-COMMONEST = 500
+inflect = engine()
 
-ADJECTIVES, NOUNS = [
-    sorted([
-        lemma for synset in wordnet.all_synsets(kind)
-        for lemma in synset.lemmas()
-    ], key=lambda lemma: lemma.count())[-RAREST:-COMMONEST]
-    for kind in wordnet.ADJ, wordnet.NOUN
+ADJECTIVES, NOUNS = (set(), set())
+BLACKLIST = [
+    'miserable',
+    'little',
+    'secrets',
 ]
 
 
+for wordset, kind in [
+    (ADJECTIVES, wordnet.ADJ),
+    (NOUNS, wordnet.NOUN),
+]:
+    for synset in wordnet.all_synsets(kind):
+        for lemma in filter(
+            lambda l: all((
+                not re.search(r'\d', l.name()),
+                l.name() not in BLACKLIST,
+                l.count() > 0,
+            )), synset.lemmas()
+        ):
+            wordset.add(lemma.name().replace('_', ' '))
+
+
+ADJECTIVES, NOUNS = (list(ADJECTIVES), list(NOUNS))
+
+
 for i in xrange(10):
-    print 'what is a man? {} little pile of {}'.format(
-        referenced(choice(ADJECTIVES).name()),
-        pluralize(choice(NOUNS).name()),
+    adjective = choice(ADJECTIVES)
+    article = inflect.a(adjective).replace(adjective, '').strip().capitalize()
+
+    print '{} {} little pile of {}.'.format(
+        article,
+        adjective,
+        inflect.plural(choice(NOUNS)),
     )
