@@ -32,12 +32,17 @@ for wordset, kind in [
 ADJECTIVES, NOUNS = (list(ADJECTIVES), list(NOUNS))
 
 
-for i in xrange(10):
+def generate():
     adjective = choice(ADJECTIVES)
     article = inflect.a(adjective).replace(adjective, '').strip().capitalize()
 
-    print '{} {} little pile of {}.'.format(
+    return '{} {} little pile of {}.'.format(
         article,
         adjective,
         inflect.plural(choice(NOUNS)),
     )
+
+
+if __name__ == '__main__':
+    for i in xrange(10):
+        print generate()
