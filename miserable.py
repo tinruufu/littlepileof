@@ -10,7 +10,7 @@ ADJECTIVES, NOUNS = (set(), set())
 BLACKLIST = [
     'miserable',
     'little',
-    'secrets',
+    'secret',
 ]
 
 
