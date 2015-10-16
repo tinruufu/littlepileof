@@ -23,6 +23,7 @@ for wordset, kind in [
             lambda l: all((
                 not re.search(r'\d', l.name()),
                 l.name() not in BLACKLIST,
+                not l.name().endswith(' to'),
                 l.count() > 0,
             )), synset.lemmas()
         ):
@@ -44,5 +45,5 @@ def generate():
 
 
 if __name__ == '__main__':
-    for i in xrange(10):
+    for i in xrange(100):
         print generate()

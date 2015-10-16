@@ -27,7 +27,7 @@ A prolonged little pile of separations.
 An interdependent little pile of fences.
 A razor-sharp little pile of lilts.
 A kindly little pile of supermarkets.
-An out to little pile of Arctics.
+A radial little pile of solipsisms.
 A scorched little pile of registrations.
 An adverse little pile of sheets.
 An atrophied little pile of tentacles.
