@@ -23,7 +23,7 @@ for wordset, kind in [
             lambda l: all((
                 not re.search(r'\d', l.name()),
                 l.name() not in BLACKLIST,
-                not l.name().endswith(' to'),
+                not l.name().endswith('_to'),
                 l.count() > 0,
             )), synset.lemmas()
         ):
