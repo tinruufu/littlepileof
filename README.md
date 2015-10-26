@@ -8,21 +8,21 @@
 
 ## install
 
-get a unix-looking system with python, then clone and `cd` to this repo, then
+get a unix-looking system with python 2, then clone and `cd` to this repo, then
 run:
 
 ```
-pip install -r requirements.txt
-python -c 'import nltk; nltk.download("wordnet")'
+pip2 install -r requirements.txt
+python2 -c 'import nltk; nltk.download("wordnet")'
 ```
 
 ## use
 
 if you just want to generate dumb fake sotn quotes at your command line, all
-you need to do at this point is run `python miserable.py`:
+you need to do at this point is run `python2 miserable.py`:
 
 ```
-$ python miserable.py
+$ python2 miserable.py
 A prolonged little pile of separations.
 An interdependent little pile of fences.
 A razor-sharp little pile of lilts.
@@ -57,6 +57,6 @@ token_secret = 'AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA'
 [app]: https://apps.twitter.com/app/new
 [auth]: http://docs.tweepy.org/en/latest/auth_tutorial.html
 
-to tweet, you should now be able to run `python tweet.py` (but remember it will
+to tweet, you should now be able to run `python2 tweet.py` (but remember it will
 take a few minutes). i run `daemon.py` as a service on my server to keep the
 posts a-coming, but you can do whatever you like, i'm not the boss of you
