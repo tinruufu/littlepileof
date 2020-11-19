@@ -1,4 +1,4 @@
-nltk==3.0.5
+nltk==3.4.5
 inflect==0.2.5
 tweepy==3.4.0
 requests==2.10.0
